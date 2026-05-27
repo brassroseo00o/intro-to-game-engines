@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://8i0ifua6ej5o"]
+
+[ext_resource type="Script" uid="uid://bxp1wmfy1ieuc" path="res://scenes/area_2d.gd" id="1_nhxoo"]
+[ext_resource type="Texture2D" uid="uid://bi4s6njpgv6td" path="res://assets/brackeys_platformer_assets/sprites/world_tileset.png" id="1_svk5y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nhxoo"]
+size = Vector2(16, 16)
+
+[node name="BouncyMushroom" type="Area2D" unique_id=509233840]
+collision_mask = 2
+script = ExtResource("1_nhxoo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2037582616]
+visibility_layer = 2
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_nhxoo")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=710009392]
+position = Vector2(0, 3)
+scale = Vector2(1, 1.0351563)
+texture = ExtResource("1_svk5y")
+region_enabled = true
+region_rect = Rect2(111.27657, 96.08817, 16.961082, 15.513847)

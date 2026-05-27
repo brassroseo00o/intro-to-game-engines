@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://betopamga5ec4"]
+
+[ext_resource type="Script" uid="uid://dvsj8nqlodrwt" path="res://slime.gd" id="1_4l1t8"]
+[ext_resource type="Texture2D" uid="uid://jalcm26g124s" path="res://assets/brackeys_platformer_assets/sprites/slime_purple.png" id="1_5jc4t"]
+[ext_resource type="PackedScene" uid="uid://b2d1esqta52p0" path="res://Hitbox.tscn" id="3_4l1t8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ppcr1"]
+atlas = ExtResource("1_5jc4t")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jayke"]
+atlas = ExtResource("1_5jc4t")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2002g"]
+atlas = ExtResource("1_5jc4t")
+region = Rect2(48, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bratd"]
+atlas = ExtResource("1_5jc4t")
+region = Rect2(72, 24, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5b0gg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ppcr1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jayke")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2002g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bratd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_da4t2"]
+size = Vector2(14, 13)
+
+[node name="slime" type="Node2D" unique_id=1243050071]
+script = ExtResource("1_4l1t8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1246811499]
+sprite_frames = SubResource("SpriteFrames_5b0gg")
+frame_progress = 0.76537186
+
+[node name="hitbox" parent="AnimatedSprite2D" unique_id=436002498 instance=ExtResource("3_4l1t8")]
+position = Vector2(0, 4.9999995)
+scale = Vector2(0.7, 0.7)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="AnimatedSprite2D/hitbox" unique_id=208038966]
+position = Vector2(0, 7.1525574e-07)
+scale = Vector2(0.6000002, 1)
+shape = SubResource("RectangleShape2D_da4t2")
+
+[node name="forward" type="RayCast2D" parent="AnimatedSprite2D/hitbox/CollisionShape2D2" unique_id=631712933]
+target_position = Vector2(13.333329, 0.5)
+
+[node name="backwards" type="RayCast2D" parent="AnimatedSprite2D/hitbox/CollisionShape2D2" unique_id=2128692848]
+target_position = Vector2(-13.333329, 0.5)
