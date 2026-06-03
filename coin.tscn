@@ -2,11 +2,13 @@
 
 [ext_resource type="Script" uid="uid://dvt47bo8i1ck6" path="res://coin.gd" id="1_0t63x"]
 [ext_resource type="Texture2D" uid="uid://6gdw5t4navv3" path="res://assets/brackeys_platformer_assets/sprites/coin.png" id="1_d5gmh"]
+[ext_resource type="AudioStream" uid="uid://b0jf1e2nletqq" path="res://assets/brackeys_platformer_assets/sounds/coin.wav" id="3_v7riw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v7riw"]
 radius = 5.0
 
 [node name="COIN" type="Area2D" unique_id=218169033]
+collision_mask = 2
 script = ExtResource("1_0t63x")
 
 [node name="Coin" type="Sprite2D" parent="." unique_id=1089454063]
@@ -16,5 +18,9 @@ region_rect = Rect2(0, 0, 15.8258, 15.709351)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=54088925]
 shape = SubResource("CircleShape2D_v7riw")
+
+[node name="pickup" type="AudioStreamPlayer2D" parent="." unique_id=1577586147]
+stream = ExtResource("3_v7riw")
+volume_db = 24.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

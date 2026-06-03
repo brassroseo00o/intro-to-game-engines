@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nhxoo"]
 size = Vector2(16, 16)
 
-[node name="BouncyMushroom" type="Area2D" unique_id=509233840]
+[node name="BouncyMushroom" type="Area2D" unique_id=509233840 groups=["player"]]
 collision_mask = 2
 script = ExtResource("1_nhxoo")
 
@@ -21,3 +21,5 @@ scale = Vector2(1, 1.0351563)
 texture = ExtResource("1_svk5y")
 region_enabled = true
 region_rect = Rect2(111.27657, 96.08817, 16.961082, 15.513847)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

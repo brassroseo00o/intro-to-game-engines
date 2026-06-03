@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dvsj8nqlodrwt" path="res://slime.gd" id="1_4l1t8"]
 [ext_resource type="Texture2D" uid="uid://jalcm26g124s" path="res://assets/brackeys_platformer_assets/sprites/slime_purple.png" id="1_5jc4t"]
 [ext_resource type="PackedScene" uid="uid://b2d1esqta52p0" path="res://Hitbox.tscn" id="3_4l1t8"]
+[ext_resource type="Script" uid="uid://c7ofch8mopm70" path="res://goombahead.gd" id="4_ppcr1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ppcr1"]
 atlas = ExtResource("1_5jc4t")
@@ -41,26 +42,45 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_da4t2"]
-size = Vector2(14, 13)
+size = Vector2(16.45425, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4l1t8"]
+size = Vector2(4.353448, 11.149233)
 
 [node name="slime" type="Node2D" unique_id=1243050071]
 script = ExtResource("1_4l1t8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1246811499]
+position = Vector2(1, -13)
+scale = Vector2(1.1375401, 1.1205161)
 sprite_frames = SubResource("SpriteFrames_5b0gg")
 frame_progress = 0.76537186
 
 [node name="hitbox" parent="AnimatedSprite2D" unique_id=436002498 instance=ExtResource("3_4l1t8")]
-position = Vector2(0, 4.9999995)
-scale = Vector2(0.7, 0.7)
+position = Vector2(3.1539912e-08, 8.924459)
+scale = Vector2(0.49032077, -0.26603532)
+collision_mask = 2
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="AnimatedSprite2D/hitbox" unique_id=208038966]
-position = Vector2(0, 7.1525574e-07)
-scale = Vector2(0.6000002, 1)
+position = Vector2(-1.9073486e-06, 3.8146973e-06)
+scale = Vector2(1.1916728, 1.0477396)
 shape = SubResource("RectangleShape2D_da4t2")
 
 [node name="forward" type="RayCast2D" parent="AnimatedSprite2D/hitbox/CollisionShape2D2" unique_id=631712933]
 target_position = Vector2(13.333329, 0.5)
 
 [node name="backwards" type="RayCast2D" parent="AnimatedSprite2D/hitbox/CollisionShape2D2" unique_id=2128692848]
+position = Vector2(-1.961499e-06, 0)
 target_position = Vector2(-13.333329, 0.5)
+
+[node name="Goombahead" type="Area2D" parent="." unique_id=225581063]
+position = Vector2(-3, -16)
+collision_mask = 2
+script = ExtResource("4_ppcr1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goombahead" unique_id=1872891358]
+position = Vector2(4, 6.421913)
+scale = Vector2(2.3199983, 0.46246895)
+shape = SubResource("RectangleShape2D_4l1t8")
+
+[connection signal="body_entered" from="Goombahead" to="Goombahead" method="_on_body_entered"]
