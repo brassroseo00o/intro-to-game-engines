@@ -4,7 +4,7 @@ var on_ladder = false
 const SPEED = 120.0
 const CLIMB_SPEED = 150.0
 const GRAVITY = 700.0
-const JUMP_VELOCITY = -300.0
+const JUMP_VELOCITY = -400.0
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
