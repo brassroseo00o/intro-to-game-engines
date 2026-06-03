@@ -486,7 +486,7 @@ position = Vector2(247, -751)
 
 [node name="killzone" parent="." unique_id=436002498 instance=ExtResource("5_iywne")]
 position = Vector2(57, 35)
-scale = Vector2(-22.565136, 1.2415968)
+scale = Vector2(-22.565136, 5.1615977)
 
 [node name="slime" parent="." unique_id=1243050071 instance=ExtResource("6_p57ef")]
 position = Vector2(123, -384)
