@@ -306,6 +306,7 @@ _data = {
 }
 
 [node name="game" type="Node2D" unique_id=1777359088]
+position = Vector2(0, -1)
 
 [node name="GameManager" type="Node" parent="." unique_id=1740960538]
 unique_name_in_owner = true
