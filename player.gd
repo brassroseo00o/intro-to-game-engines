@@ -1,10 +1,10 @@
 extends CharacterBody2D
 var on_ladder = false
 
-const SPEED = 120.0
+const SPEED = 150.0
 const CLIMB_SPEED = 150.0
-const GRAVITY = 700.0
-const JUMP_VELOCITY = -350.0
+const GRAVITY = 600.0
+const JUMP_VELOCITY = -400.0
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
@@ -15,7 +15,6 @@ var climb_speed = 100
 
 func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("ui_left", "ui_right")
-	move_and_slide()
 	if is_on_floor() and double_jump == true:
 		double_jump = false
 	if not is_on_floor():
@@ -43,7 +42,6 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-	move_and_slide()
 	if on_ladder:
 		velocity.y = 0
 	if Input.is_action_pressed("ui_up"):
@@ -52,7 +50,7 @@ func _physics_process(delta: float) -> void:
 			velocity.y = CLIMB_SPEED
 	else:
 		velocity.y += GRAVITY * delta
-
+	move_and_slide()
 
 func jump(multi : float = 1):
 		velocity.y = JUMP_VELOCITY * multi

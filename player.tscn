@@ -174,7 +174,6 @@ radius = 5.0
 [node name="player" type="CharacterBody2D" unique_id=286499027 groups=["player"]]
 z_index = 5
 collision_layer = 3
-collision_mask = 3
 script = ExtResource("1_onrkg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1973188774]
@@ -185,3 +184,5 @@ autoplay = "idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1454074143]
 position = Vector2(0, 7)
 shape = SubResource("CircleShape2D_1jxqw")
+
+[node name="AudioListener2D" type="AudioListener2D" parent="." unique_id=159797400]
